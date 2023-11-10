@@ -8,11 +8,11 @@ def login():
     return "login"
 
 
-@auth.route("/logout")
+@auth.route("logout")
 def logout():
     return "logout"
 
 
-@auth.route("/sign-up")
+@auth.route("sign-up")
 def signup():
     return "sign up"
