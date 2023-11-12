@@ -1,14 +1,17 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, redirect, url_for
+from .forms import LogIn
 
 auth = Blueprint('auth', __name__)
 
 
 @auth.route("/login", methods=['GET', 'POST'])
 def login():
-    if request.method == "POST":
-        data = request.form
-        print(data)
-    return render_template('login.html')
+    form = LogIn()
+    if form.validate_on_submit():
+        print(form.email.data, form.password.data)
+        return redirect(url_for('views.hp'))
+        
+    return render_template('login.html', form=form)
 
 
 @auth.route("logout")

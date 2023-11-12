@@ -1,7 +1,7 @@
 from typing import List
 from sqlalchemy import Integer, String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from . import db, Base
+from . import db
 
 
 class User(db.Model):

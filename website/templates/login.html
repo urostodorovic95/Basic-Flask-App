@@ -1,29 +1,17 @@
-{% extends "base.html" %} {% block title %}Login{% endblock title %} {% block
-content %}
+{% extends "base.html" %} {% block title %}Login{% endblock title %} 
+{% block content %}
 <div class="container mt-2">
-  <form method="POST">
+  <form method="POST" novalidate>
+    {{ form.hidden_tag() }}
     <div class="mb-3">
-      <label for="inputemail" class="form-label">Email address</label>
-      <input
-        type="email"
-        class="form-control"
-        id="inputemail"
-        name="inputemail"
-        aria-describedby="emailHelp"
-        placeholder="name@email.com"
-      />
+      {{ form.email.label(class="form-label") }} 
+      {{ form.email(class="form-control") }}
     </div>
     <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input
-        type="password"
-        class="form-control"
-        id="password"
-        name="password"
-        placeholder="password"
-      />
+      {{ form.password.label(class="form-label") }} 
+      {{ form.password(class="form-control") }}
     </div>
-    <button type="submit" class="btn btn-primary">Login</button>
+      {{ form.submit(class='btn btn-primary') }}
   </form>
 </div>
 {% endblock content %}
