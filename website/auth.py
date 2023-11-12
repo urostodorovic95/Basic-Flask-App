@@ -9,9 +9,9 @@ def login():
     form = LogIn()
     if form.validate_on_submit():
         print(form.email.data, form.password.data)
-        return redirect(url_for('views.hp'))
+        return redirect(url_for('views.hp', user_signed=True))
         
-    return render_template('login.html', form=form)
+    return render_template('login.html', form=form, form_check=True)
 
 
 @auth.route("logout")
@@ -23,7 +23,7 @@ def logout():
 def signup():
     form = SignUp()
     if form.validate_on_submit():
-        return redirect(url_for('views.hp'))
+        return redirect(url_for('views.hp', user_signed=True))
         
-    return render_template('signup.html', form=form)
+    return render_template('signup.html', form=form, form_check=True)
 

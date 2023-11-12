@@ -74,6 +74,16 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    {% if form_check %}
+    {% for field, errors in form.errors.items() %}
+<div class="container text-center mx-auto">
+  <div class="alert alert-danger" role="alert">
+      {{ form[field].label }}: {{ ', '.join(errors) }}
+  </div>
+</div>
+    {% endfor %}
+    {% endif %}
     {% block content %}{% endblock content %}
+ 
   </body>
 </html>

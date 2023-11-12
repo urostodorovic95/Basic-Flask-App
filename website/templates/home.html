@@ -1,2 +1,9 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock title %}
+{% block content %}
+{% if request.args.get('user_signed') %}
+<div class="alert alert-success" role="alert">
+    Welcome! You are signed in.
+  </div>
+{% endif %}
+{% endblock content %}
